@@ -1,6 +1,20 @@
 from transformers import PPOTrainer, PPOConfig
 
-def train_with_rlhf(model, tokenizer, dataset, reward_model):
-    config = PPOConfig()
-    trainer = PPOTrainer(config=config, model=model, tokenizer=tokenizer, dataset=dataset, reward_model=reward_model)
+def train_with_rlhf(model, tokenizer, reward_model, dataset):
+    """
+    Train a language model using Reinforcement Learning from Human Feedback (RLHF).
+    """
+    # PPO Configuration
+    ppo_config = PPOConfig()
+
+    # Create PPO Trainer
+    trainer = PPOTrainer(
+        config=ppo_config,
+        model=model,
+        tokenizer=tokenizer,
+        dataset=dataset,
+        reward_model=reward_model
+    )
+
+    # Train the model
     trainer.train()
