@@ -104,16 +104,109 @@ LLM-Alignment-Assistant/
 
 ---
 
-## Usage
+## How to Run
 
-1. **Fine-Tuning**:
-   - Run `src/training/fine_tuning.py` with your dataset and model.
-2. **RLHF Training**:
-   - Run `src/training/rlhf.py` for RLHF optimization.
-3. **Model Evaluation**:
-   - Use `src/evaluation/metrics.py` to analyze model performance.
-4. **Web Application**:
-   - Access the interactive UI by navigating to `http://localhost:8000`.
+Follow these steps to run the LLM Alignment Assistant project:
+
+### 1. Setup the Environment
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/LLM-Alignment-Assistant.git
+   cd LLM-Alignment-Assistant
+   ```
+
+2. Create and activate a Python virtual environment:
+   ```bash
+   python3 -m venv env
+   source env/bin/activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+### 2. Generate Synthetic Data
+
+1. Generate synthetic data for training:
+   ```bash
+   python data/scripts/generate_synthetic_data.py --output data/raw/synthetic_data.csv --num-samples 1000
+   ```
+
+2. Preprocess the data:
+   ```bash
+   python data/scripts/preprocess_data.py --input data/raw/synthetic_data.csv --output data/processed/preprocessed_data.csv
+   ```
+
+---
+
+### 3. Fine-Tune the Model
+
+1. Fine-tune a pre-trained language model on the synthetic dataset:
+   ```bash
+   python src/training/fine_tuning.py --model-name gpt2 --dataset-path data/processed/preprocessed_data.csv --output-dir models/fine_tuned_model
+   ```
+
+---
+
+### 4. Evaluate the Model
+
+1. Evaluate the fine-tuned model:
+   ```bash
+   python src/evaluation/metrics.py --predictions predictions.json --labels ground_truth.json
+   ```
+
+2. Run safety tests:
+   ```bash
+   python src/evaluation/safety_tests.py --model-path models/fine_tuned_model --prompts safety_test_prompts.json
+   ```
+
+---
+
+### 5. Run the Web Application
+
+1. Start the FastAPI web application:
+   ```bash
+   python src/deployment/fastapi_app.py
+   ```
+
+2. Open your browser and navigate to:
+   ```bash
+   http://localhost:8000
+   ```
+
+3. Use the \`/predict/\` endpoint to send test prompts to the model.
+
+---
+
+### 6. Optional: Use Docker
+
+1. Build the Docker image:
+   ```bash
+   docker build -t llm-alignment-assistant .
+   ```
+
+2. Run the Docker container:
+   ```bash
+   docker run -p 8000:8000 llm-alignment-assistant
+   ```
+
+3. Access the web application at:
+   ```bash
+   http://localhost:8000
+   ```
+
+---
+
+### 7. Run Tests
+
+1. Execute unit tests:
+   ```bash
+   pytest tests/
+   ```
 
 ---
 
