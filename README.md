@@ -13,8 +13,6 @@
 
 **LLM Alignment Template** provides a full stack of functionality, including training, fine-tuning, deploying, and monitoring LLMs using Reinforcement Learning from Human Feedback (RLHF). This project also integrates evaluation metrics to ensure ethical and effective use of language models. The interface offers a user-friendly experience for managing alignment, visualizing training metrics, and deploying at scale.
 
-![Architecture Diagram](assets/architecture_diagram.png)
-
 ## ✨ Features
 
 - **🌐 Interactive Web Interface**: A user-friendly interface for interacting with the LLM, training models, and viewing alignment metrics.
