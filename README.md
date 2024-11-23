@@ -80,10 +80,10 @@ LLM-Alignment-Assistant/
 ### Steps
 
 1. Clone the repository:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/yourusername/LLM-Alignment-Assistant.git
    cd LLM-Alignment-Assistant
-   \`\`\`
+   ```
 
 2. Set up the environment:
    - Using \`requirements.txt\`:
