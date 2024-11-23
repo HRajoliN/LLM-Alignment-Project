@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
@@ -25,9 +26,9 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build Docker Image Locally
+    - name: Build Docker Image with System Dependencies
       run: |
-        docker build -t local-llm-alignment-template:latest -f deployment/Dockerfile .
+        docker build --build-arg PIP_UPGRADE=true -t local-llm-alignment-template:latest -f deployment/Dockerfile .
 
     - name: Run Docker Container Locally
       run: |
