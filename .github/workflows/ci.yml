@@ -30,15 +30,15 @@ jobs:
 
     - name: Run Black
       run: |
-        black .  # Allow Black to automatically reformat files
+        black . --exclude "\.ipynb$"  # Skip Jupyter notebook files
 
     - name: Run isort
       run: |
-        isort --check-only .
+        isort --check-only . --skip-glob "*.ipynb"  # Skip Jupyter notebook files
 
     - name: Run Pylint
       run: |
-        pylint src tests
+        pylint src tests --ignore-patterns=".*\.ipynb$"  # Skip Jupyter notebook files
 
     - name: Run tests with coverage
       run: |
