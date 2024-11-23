@@ -86,7 +86,7 @@ LLM-Alignment-Assistant/
    ```
 
 2. Set up the environment:
-   - Using \`requirements.txt\`:
+   - Using `requirements.txt`:
      ```bash
      pip install -r requirements.txt
      ```
