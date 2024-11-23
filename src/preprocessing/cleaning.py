@@ -1,20 +1,31 @@
+import pandas as pd
 import re
 
+class DataCleaning:
+    def __init__(self, df):
+        self.df = df
 
-def clean_text(text):
-    """
-    Clean the input text by:
-    - Removing special characters
-    - Stripping leading/trailing spaces
-    - Lowercasing the text
-    """
-    text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
-    return text.strip().lower()
+    def remove_duplicates(self):
+        # Remove duplicate rows
+        self.df = self.df.drop_duplicates()
 
+    def remove_biases(self):
+        # Example of removing biased content, can be expanded
+        biased_phrases = ["offensive term 1", "offensive term 2"]
+        self.df = self.df[~self.df['text'].str.contains('|'.join(biased_phrases), case=False)]
 
-def clean_dataframe(df, text_column="text"):
-    """
-    Clean all the text data in the specified column of a DataFrame.
-    """
-    df[text_column] = df[text_column].apply(clean_text)
-    return df
+    def clean_text(self):
+        # Basic cleaning such as removing unwanted characters
+        self.df['text'] = self.df['text'].apply(lambda x: re.sub(r'\W+', ' ', x.lower()))
+
+    def get_cleaned_data(self):
+        self.remove_duplicates()
+        self.remove_biases()
+        self.clean_text()
+        return self.df
+
+if __name__ == "__main__":
+    df = pd.read_csv("raw_data.csv")
+    cleaner = DataCleaning(df)
+    cleaned_df = cleaner.get_cleaned_data()
+    cleaned_df.to_csv("cleaned_data.csv", index=False)

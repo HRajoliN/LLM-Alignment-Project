@@ -1,12 +1,35 @@
-transformers
-torch
-datasets
-fastapi
-uvicorn
-flask
-scikit-learn
-numpy
-pandas
-matplotlib
-jinja2
+# General Libraries
+pandas  # Used for data manipulation (if needed elsewhere in the project)
+requests  # Used for making HTTP requests to APIs for data augmentation
+tqdm  # Progress bar for visual feedback
 
+# NLP and Text Processing
+nltk  # Used for synonym replacement, stopword removal, etc.
+spacy  # Used for named entity recognition (NER) and word vector similarity
+pyspellchecker  # Used for checking and adding spelling variations
+
+# Deep Learning Libraries
+torch  # Required for training, if not already included
+
+# Reinforcement Learning and Hyperparameter Tuning
+ray[rllib]  # For reinforcement learning and distributed PPO training
+ray[tune]  # For advanced hyperparameter tuning
+gym  # For setting up environments used in reinforcement learning
+
+# Evaluation Metrics
+bert-score  # Used for BERTScore evaluation of generated responses
+rouge-score  # Used for calculating ROUGE metrics for evaluation
+
+# Explainability and Causal Analysis
+shap  # SHAP values for explainability
+dowhy  # Causal inference analysis of model outputs
+
+# Deployment and APIs
+fastapi  # If the project has a web deployment component
+uvicorn  # ASGI server for serving the FastAPI application
+
+# Logging and Resilience
+backoff  # Used for retrying failed API requests
+
+# Web Scraping (if needed for future augmentation)
+beautifulsoup4  # Used for web scraping if you need to gather external data
