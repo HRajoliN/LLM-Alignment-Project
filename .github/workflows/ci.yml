@@ -28,7 +28,7 @@ jobs:
 
     - name: Set PYTHONPATH
       run: |
-        export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
+        echo "PYTHONPATH=src" >> $GITHUB_ENV
 
     - name: Run tests with coverage
       run: |
