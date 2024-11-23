@@ -87,19 +87,19 @@ LLM-Alignment-Assistant/
 
 2. Set up the environment:
    - Using \`requirements.txt\`:
-     \`\`\`bash
+     ```bash
      pip install -r requirements.txt
-     \`\`\`
+     ```
    - Using \`environment.yml\` (if using Conda):
-     \`\`\`bash
+     ```bash
      conda env create -f environment.yml
      conda activate llm-alignment-assistant
-     \`\`\`
+     ```
 
 3. Run the application:
-   \`\`\`bash
+   ```bash
    python src/deployment/fastapi_app.py
-   \`\`\`
+   ```
 
 
 ---
@@ -122,26 +122,26 @@ LLM-Alignment-Assistant/
 ### Docker
 
 1. Build the Docker image:
-   \`\`\`bash
+   ```bash
    docker build -t llm-alignment-assistant .
-   \`\`\`
+   ```
 
 2. Run the container:
-   \`\`\`bash
+   ```bash
    docker run -p 8000:8000 llm-alignment-assistant
-   \`\`\`
+   ```
 
 ### Kubernetes
 
 1. Deploy using Kubernetes manifests:
-   \`\`\`bash
+   ```bash
    kubectl apply -f deployment/kubernetes/
-   \`\`\`
+   ```
 
 2. Verify the deployment:
-   \`\`\`bash
+   ```bash
    kubectl get pods
-   \`\`\`
+   ```
 
 ---
 
