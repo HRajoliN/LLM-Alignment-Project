@@ -3,3 +3,10 @@ torch
 datasets
 fastapi
 uvicorn
+flask
+scikit-learn
+numpy
+pandas
+matplotlib
+jinja2
+pytest

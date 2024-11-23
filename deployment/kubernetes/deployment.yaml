@@ -1,1 +1,19 @@
 apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-alignment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: llm-alignment
+  template:
+    metadata:
+      labels:
+        app: llm-alignment
+    spec:
+      containers:
+      - name: app
+        image: llm-alignment:latest
+        ports:
+        - containerPort: 8000
