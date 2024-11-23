@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class MultiObjectiveRL:
     def __init__(self, reward_weights):
         self.reward_weights = reward_weights

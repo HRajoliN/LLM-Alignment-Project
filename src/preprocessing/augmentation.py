@@ -1,7 +1,8 @@
 import random
 import re
-import spacy
+
 import nltk
+import spacy
 from nltk.corpus import stopwords
 from spellchecker import SpellChecker
 

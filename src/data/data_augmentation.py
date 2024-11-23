@@ -1,10 +1,11 @@
-import requests
-import random
-import spacy
-import nltk
-from nltk.corpus import wordnet
-import backoff
 import logging
+import random
+
+import backoff
+import nltk
+import requests
+import spacy
+from nltk.corpus import wordnet
 
 # Load Spacy model for NER and tokenization
 nlp = spacy.load("en_core_web_sm")

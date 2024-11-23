@@ -1,5 +1,7 @@
-import pandas as pd
 import re
+
+import pandas as pd
+
 
 class DataCleaning:
     def __init__(self, df):

@@ -19,26 +19,30 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # Updated to 3.9
+        python-version: '3.9'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r dev-requirements.txt
-        pip install "black[jupyter]"  # Install Jupyter support for Black
+        pip install "black[jupyter]"
+
+    - name: Run Isort to Auto-Fix Imports
+      run: |
+        isort . --skip-glob "*.ipynb"  # Automatically fix import order for all files except Jupyter notebooks
+
+    - name: Run Isort Check
+      run: |
+        isort --check-only . --skip-glob "*.ipynb"  # Verify that all imports are correctly sorted
 
     - name: Run Black
       run: |
-        black . --exclude "\.ipynb$"  # Skip Jupyter notebook files
-
-    - name: Run isort
-      run: |
-        isort --check-only . --skip-glob "*.ipynb"  # Skip Jupyter notebook files
+        black . --exclude "\.ipynb$"
 
     - name: Run Pylint
       run: |
-        pylint src tests --ignore-patterns=".*\.ipynb$"  # Skip Jupyter notebook files
+        pylint src tests --ignore-patterns=".*\.ipynb$"
 
     - name: Run tests with coverage
       run: |

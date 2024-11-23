@@ -1,5 +1,6 @@
 from bert_score import score
 
+
 class ContextualMetrics:
     @staticmethod
     def bleu(reference, candidate):

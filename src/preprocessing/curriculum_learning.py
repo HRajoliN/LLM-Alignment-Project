@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class CurriculumLearning:
     def __init__(self, df):
         self.df = df

@@ -2,6 +2,7 @@ import ray
 from ray import tune
 from ray.rllib.agents.ppo import PPOTrainer
 
+
 def ppo_training(config):
     trainer = PPOTrainer(config=config)
     for i in range(50):
