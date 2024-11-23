@@ -1,268 +1,151 @@
-# 🌟 LLM Alignment Assistant
+# LLM Alignment Assistant
 
-## 🚀 Overview
+## 🌟 Overview
 
-The **LLM Alignment Assistant** is a cutting-edge project designed to align large language models (**LLMs**) with user-defined ethical, operational, and safety goals. It leverages advanced techniques such as **fine-tuning** and **Reinforcement Learning from Human Feedback (RLHF)** to ensure:
+**LLM Alignment Assistant** is an advanced tool designed to assist in aligning large language models (LLMs) with desired human values and objectives. This project offers a full-stack approach to training, fine-tuning, deploying, and monitoring LLMs using **Reinforcement Learning from Human Feedback (RLHF)**. The system also incorporates evaluation metrics to ensure ethical and effective use of language models. The assistant provides a user-friendly interface for exploring the alignment, visualization of training metrics, and deploying the system at scale using cloud-native technologies.
 
-- ✅ **Safe Outputs**: Models produce responsible and ethical responses.
-- 🎯 **Effective Solutions**: Tailored to meet user-specific needs.
-- 🤝 **User-Centric Behavior**: Models align with human preferences.
+![✨ Architecture Diagram](assets/architecture_diagram.png)
 
----
+## ✨ Key Features
 
-## ✨ Features
+- **🖥️ User-Friendly Web Interface**: A sleek, intuitive UI for interacting with the LLM and viewing alignment results.
+- **📊 Interactive Training**: Train models using RLHF, with dynamic metrics displayed in real-time.
+- **🛠️ Data Augmentation & Preprocessing**: Advanced preprocessing scripts, including tokenization, cleaning, and data augmentation using NLP techniques.
+- **⚙️ Scalable Deployment**: Easy deployment via Docker and Kubernetes, with horizontal scaling capabilities.
+- **🔍 Explainability & Monitoring**: Incorporates SHAP or LIME-based explainability features along with live monitoring dashboards.
 
-🔧 **Fine-Tuning**  
-Specialize LLMs for specific tasks, industries, and domains, ensuring optimal performance.
+## 🗂️ Project Structure
 
-🤖 **Reinforcement Learning from Human Feedback (RLHF)**  
-Align the model's behavior with human feedback for personalized and ethical interactions.
+- **📁 app/**: Contains the UI and the backend logic of the web interface.
+  - `ui.py`: Manages routes and interactions with the UI.
+  - `static/`: Contains styles and JavaScript for an appealing UI.
+  - `templates/`: HTML templates for rendering the web pages.
+- **📁 data/**: Scripts and datasets for generating, downloading, and processing data.
+- **📁 deployment/**: Docker, Kubernetes configurations, and Helm charts to manage deployments.
+- **📁 src/**: Core functionality, including training, evaluation, and preprocessing scripts.
+- **📁 tests/**: Unit and integration tests to ensure quality across the different components.
 
-🔍 **Explainability**  
-Enhance transparency with interpretable outputs, giving users insight into the model's decisions.
+## 🛠️ Setup
 
-🛡️ **Safety Tests**  
-Ensure the model avoids generating harmful, biased, or unsafe content with robust testing.
+### 📋 Prerequisites
 
-⚙️ **Customizability**  
-Support for tailoring ethical and functional guidelines to fit user preferences and needs.
+- Python 3.8+
+- Docker & Docker Compose
+- Kubernetes (Minikube or any cloud provider)
+- Node.js (for front-end enhancements)
 
-📈 **Scalability**  
-Deploy effortlessly using **Docker** and **Kubernetes**, ensuring reliability and performance at scale.
+### 🔧 Installation
 
-🌟 Whether you're building safer AI tools, improving user trust, or optimizing for specific use cases, the **LLM Alignment Assistant** is your solution for creating aligned, reliable, and user-centric AI systems.
-
----
-## Project Structure
-
-```plaintext
-LLM-Alignment-Assistant/
-├── README.md              # Project overview and instructions
-├── LICENSE                # Licensing information
-├── .gitignore             # Files to ignore in version control
-├── requirements.txt       # Python dependencies
-├── environment.yml        # Conda environment file
-├── setup.py               # Python packaging script
-│
-├── data/                  # Dataset handling
-│   ├── raw/               # Raw datasets
-│   ├── processed/         # Cleaned datasets
-│   ├── samples/           # Example datasets
-│   └── scripts/           # Data preparation scripts
-│       ├── download_data.py
-│       ├── preprocess_data.py
-│       └── validate_data.py
-│
-├── notebooks/             # Jupyter notebooks for experiments
-│   ├── 01_eda.ipynb       # Exploratory Data Analysis
-│   ├── 02_fine_tuning.ipynb
-│   ├── 03_rlhf.ipynb
-│   └── 04_evaluation.ipynb
-│
-├── src/                   # Source code
-│   ├── preprocessing/     # Preprocessing scripts
-│   ├── training/          # Training scripts
-│   ├── evaluation/        # Evaluation and testing scripts
-│   ├── deployment/        # Deployment-related code
-│   └── utils/             # Utility scripts
-│
-├── app/                   # Web application
-│   ├── templates/         # HTML templates
-│   ├── static/            # Static assets (CSS, JS, images)
-│   └── ui.py              # App logic
-│
-├── tests/                 # Test cases
-│   └── fixtures/          # Test data and mock responses
-│
-├── deployment/            # Deployment configurations
-│   ├── Dockerfile         # Docker image configuration
-│   ├── kubernetes/        # Kubernetes manifests
-│   └── scripts/           # Deployment automation scripts
-│
-└── docs/                  # Documentation
-    ├── architecture.md    # Project architecture overview
-    ├── alignment_methods.md
-    ├── rlhf_overview.md
-    ├── user_manual.md
-    └── images/            # Documentation images
-```
-
-## Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- Conda (optional)
-- Docker (optional)
-- Kubernetes (optional)
-
-### Steps
-
-1. Clone the repository:
+1. **📥 Clone the Repository**:
    ```bash
    git clone https://github.com/yourusername/LLM-Alignment-Assistant.git
    cd LLM-Alignment-Assistant
    ```
 
-2. Set up the environment:
-   - Using `requirements.txt`:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - Using `environment.yml` (if using Conda):
-     ```bash
-     conda env create -f environment.yml
-     conda activate llm-alignment-assistant
-     ```
-
-3. Run the application:
+2. **📦 Set Up the Virtual Environment**:
    ```bash
-   python src/deployment/fastapi_app.py
-   ```
-
-
----
-
-## How to Run
-
-Follow these steps to run the LLM Alignment Assistant project:
-
-### 1. Setup the Environment
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/LLM-Alignment-Assistant.git
-   cd LLM-Alignment-Assistant
-   ```
-
-2. Create and activate a Python virtual environment:
-   ```bash
-   python3 -m venv env
-   source env/bin/activate
-   ```
-
-3. Install dependencies:
-   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
    pip install -r requirements.txt
    ```
 
----
-
-### 2. Generate Synthetic Data
-
-1. Generate synthetic data for training:
+3. **📦 Install Node.js Dependencies** (optional for enhanced UI):
    ```bash
-   python data/scripts/generate_synthetic_data.py --output data/raw/synthetic_data.csv --num-samples 1000
+   cd app/static
+   npm install
    ```
 
-2. Preprocess the data:
+### 🚀 Running Locally
+
+To run the application locally:
+
+1. **🐳 Build Docker Image**:
    ```bash
-   python data/scripts/preprocess_data.py --input data/raw/synthetic_data.csv --output data/processed/preprocessed_data.csv
+   docker-compose up --build
    ```
 
----
+2. **🌐 Access the UI**:
+   Visit `http://localhost:5000` in your web browser.
 
-### 3. Fine-Tune the Model
+## 📦 Deployment
 
-1. Fine-tune a pre-trained language model on the synthetic dataset:
-   ```bash
-   python src/training/fine_tuning.py --model-name gpt2 --dataset-path data/processed/preprocessed_data.csv --output-dir models/fine_tuned_model
-   ```
+### 🚢 Docker and Kubernetes
 
----
+- **🐳 Docker**: A Dockerfile is provided for containerization.
+- **☸️ Kubernetes**: Use the provided `deployment/kubernetes/deployment.yml` and `service.yml` files to deploy the app to a Kubernetes cluster.
+- **📜 Helm Charts**: Helm charts are available in the `deployment/helm/` directory for easier reusability and scalability.
 
-### 4. Evaluate the Model
+### 🔄 CI/CD Pipeline
 
-1. Evaluate the fine-tuned model:
-   ```bash
-   python src/evaluation/metrics.py --predictions predictions.json --labels ground_truth.json
-   ```
+A GitHub Actions workflow is included to automate building, testing, and deployment:
 
-2. Run safety tests:
-   ```bash
-   python src/evaluation/safety_tests.py --model-path models/fine_tuned_model --prompts safety_test_prompts.json
-   ```
+- **✅ Lint & Test**: Linting and unit tests are run at every pull request.
+- **🐋 Docker Build & Push**: Docker images are built and pushed to Docker Hub.
+- **☸️ Kubernetes Deployment**: Automatically deploy to the Kubernetes cluster upon merging.
 
----
+## 🤖 Training and Fine-Tuning
 
-### 5. Run the Web Application
+### 💡 Reinforcement Learning from Human Feedback (RLHF)
 
-1. Start the FastAPI web application:
-   ```bash
-   python src/deployment/fastapi_app.py
-   ```
+The training module includes:
+- **📊 Fine-Tuning**: Using the `training/fine_tuning.py` script, models can be fine-tuned on specific datasets.
+- **🏆 Reward Models**: Implemented in `training/reward_model.py` for evaluating the appropriateness of responses.
+- **🌐 Distributed Training**: Support for distributed training using `training/rlhf.py`.
 
-2. Open your browser and navigate to:
-   ```bash
-   http://localhost:8000
-   ```
+### 🎛️ Hyperparameter Tuning
 
-3. Use the \`/predict/\` endpoint to send test prompts to the model.
+For hyperparameter tuning, **Optuna** has been integrated to provide automated exploration of the training parameters, ensuring optimal model performance.
 
----
+## 🔄 Data Pipeline
 
-### 6. Optional: Use Docker
+- **🛠️ Data Augmentation**: Using advanced NLP techniques, including back-translation and embedding-based masking, available in `preprocessing/augmentation.py`.
+- **✅ Validation**: Thorough validation scripts (`preprocess_data.py` and `validate_data.py`) to maintain data quality.
+- **⚙️ Automation with Apache Airflow**: Data pipeline orchestration using Airflow, ensuring proper data flow between stages.
 
-1. Build the Docker image:
-   ```bash
-   docker build -t llm-alignment-assistant .
-   ```
+## 📈 Evaluation and Monitoring
 
-2. Run the Docker container:
-   ```bash
-   docker run -p 8000:8000 llm-alignment-assistant
-   ```
+- **📊 Metrics**: The `evaluation/metrics.py` script provides a detailed analysis of model performance, including bias detection and fairness metrics.
+- **🛡️ Safety Testing**: Ethical AI assessments using `evaluation/safety_tests.py`.
+- **📊 Dashboard**: Real-time monitoring with **Streamlit**, displaying key metrics, including training loss, accuracy, and reward trends.
 
-3. Access the web application at:
-   ```bash
-   http://localhost:8000
-   ```
+## 🌐 Web Interface Improvements
 
----
+- **🎨 Improved UI with TailwindCSS**: We've enhanced the CSS for modern and engaging aesthetics.
+- **📈 Interactive Visualizations**: Added **Chart.js** visualizations to present alignment metrics in a clear, graphical format.
+- **💬 Chatbot Integration**: A conversational UI element to interact directly with the trained LLM.
 
-### 7. Run Tests
+## 🧪 Testing
 
-1. Execute unit tests:
-   ```bash
-   pytest tests/
-   ```
+- **✅ Unit Tests**: Located in `tests/`, covering training, preprocessing, and evaluation.
+- **🔄 Integration Tests**: End-to-end tests that simulate full pipeline execution.
+- **🧪 Mock Testing**: Use of `pytest-mock` to simulate API calls and external integrations.
 
----
+## 📊 Monitoring and Logging
 
-## Deployment
+- **📈 Monitoring**: Kubernetes monitoring using **Prometheus** and **Grafana**, with Horizontal Pod Autoscaling (HPA) for scalability.
+- **🔍 Explainability**: SHAP and LIME explainability metrics are added to the evaluation process, providing insights into model behavior.
+- **📜 Logging**: Centralized logging using **ELK Stack** (Elasticsearch, Logstash, Kibana).
 
-### Docker
+## 🚀 Future Work
 
-1. Build the Docker image:
-   ```bash
-   docker build -t llm-alignment-assistant .
-   ```
+- **🌍 Multi-Language Support**: Expand the LLM's training to support multiple languages.
+- **⚖️ Ethical AI Enhancements**: Further enhance bias detection and mitigation techniques.
+- **☁️ Cloud-Native Deployment**: Implement cloud services like **AWS SageMaker** for training at scale.
 
-2. Run the container:
-   ```bash
-   docker run -p 8000:8000 llm-alignment-assistant
-   ```
+## 🤝 Getting Involved
 
-### Kubernetes
+Contributions are welcome! Feel free to submit issues, pull requests, or suggestions for new features. 
 
-1. Deploy using Kubernetes manifests:
-   ```bash
-   kubectl apply -f deployment/kubernetes/
-   ```
+## 📜 License
 
-2. Verify the deployment:
-   ```bash
-   kubectl get pods
-   ```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## 📬 Contact
+
+- **✉️ Email**: [amirsina.torfi@gmail.com](mailto:amirsina.torfi@gmail.com)
+- **🌐 Website**: [Portfolio](https://astorfi.github.io)
 
 ---
 
-## Contributing
+<p align="center">Made with ❤️ by Amirsina Torfi</p>
 
-Contributions are welcome! Please fork the repository and submit a pull request.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
