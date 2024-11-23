@@ -10,3 +10,8 @@ pandas
 matplotlib
 jinja2
 pytest
+pylint
+black
+isort
+pytest
+pytest-cov
