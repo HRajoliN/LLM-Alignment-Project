@@ -1,5 +1,6 @@
 from nlpaug.augmenter.word import SynonymAug
 
+
 def augment_text(text, n=3):
     """
     Perform text augmentation using synonyms.

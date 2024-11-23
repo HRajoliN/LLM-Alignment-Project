@@ -1,10 +1,10 @@
 # Expanded Performance Dashboard using Streamlit
 
-import streamlit as st
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import numpy as np
+import pandas as pd
+import streamlit as st
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 
 # Title of the dashboard
 st.title("📊 LLM Alignment Assistant Expanded Performance Dashboard")
@@ -19,15 +19,15 @@ train_loss = np.linspace(0.8, 0.1, 50)
 val_loss = np.linspace(0.9, 0.15, 50)
 
 filtered_epochs = range(epochs[0], epochs[1] + 1)
-filtered_train_loss = train_loss[epochs[0] - 1:epochs[1]]
-filtered_val_loss = val_loss[epochs[0] - 1:epochs[1]]
+filtered_train_loss = train_loss[epochs[0] - 1 : epochs[1]]
+filtered_val_loss = val_loss[epochs[0] - 1 : epochs[1]]
 
 fig, ax = plt.subplots()
-ax.plot(filtered_epochs, filtered_train_loss, label='Training Loss', color='blue')
-ax.plot(filtered_epochs, filtered_val_loss, label='Validation Loss', color='red')
-ax.set_xlabel('Epoch')
-ax.set_ylabel('Loss')
-ax.set_title('Training vs Validation Loss')
+ax.plot(filtered_epochs, filtered_train_loss, label="Training Loss", color="blue")
+ax.plot(filtered_epochs, filtered_val_loss, label="Validation Loss", color="red")
+ax.set_xlabel("Epoch")
+ax.set_ylabel("Loss")
+ax.set_title("Training vs Validation Loss")
 ax.legend()
 
 # Display the plot
@@ -52,12 +52,14 @@ st.pyplot(fig_cm)
 # Bias Metrics Visualization
 st.header("Bias Metrics by Group")
 try:
-    bias_metrics_df = pd.read_csv('bias_metrics.csv')
+    bias_metrics_df = pd.read_csv("bias_metrics.csv")
     st.dataframe(bias_metrics_df)
 except FileNotFoundError:
-    st.warning("Bias metrics data not found. Please generate bias metrics using `bias_analysis.py`.")
+    st.warning(
+        "Bias metrics data not found. Please generate bias metrics using `bias_analysis.py`."
+    )
 
 # Instructions for running the dashboard
 st.markdown("---")
 st.markdown("**Instructions:** To run this dashboard, use the command:")
-st.code("streamlit run performance_dashboard.py", language='bash')
+st.code("streamlit run performance_dashboard.py", language="bash")

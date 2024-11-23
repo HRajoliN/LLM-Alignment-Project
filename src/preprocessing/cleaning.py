@@ -1,5 +1,6 @@
 import re
 
+
 def clean_text(text):
     """
     Clean the input text by:
@@ -9,6 +10,7 @@ def clean_text(text):
     """
     text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
     return text.strip().lower()
+
 
 def clean_dataframe(df, text_column="text"):
     """

@@ -1,5 +1,6 @@
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
+
 def load_reward_model(model_name="bert-base-uncased"):
     """
     Load a pre-trained reward model for RLHF.

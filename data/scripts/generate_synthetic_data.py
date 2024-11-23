@@ -1,7 +1,9 @@
-import random
-import pandas as pd
 import os
+import random
+
+import pandas as pd
 from tqdm import tqdm
+
 
 def generate_synthetic_data(output_path, num_samples=1000):
     """
@@ -49,16 +51,25 @@ def generate_synthetic_data(output_path, num_samples=1000):
     df.to_csv(output_path, index=False)
     print(f"\nSynthetic data with {num_samples} samples saved to {output_path}")
 
+
 if __name__ == "__main__":
     import argparse
 
     # Command-line interface for flexibility
-    parser = argparse.ArgumentParser(description="Generate synthetic data for LLM training.")
-    parser.add_argument(
-        "--output", type=str, required=True, help="Path to save the generated synthetic data."
+    parser = argparse.ArgumentParser(
+        description="Generate synthetic data for LLM training."
     )
     parser.add_argument(
-        "--num-samples", type=int, default=1000, help="Number of synthetic samples to generate."
+        "--output",
+        type=str,
+        required=True,
+        help="Path to save the generated synthetic data.",
+    )
+    parser.add_argument(
+        "--num-samples",
+        type=int,
+        default=1000,
+        help="Number of synthetic samples to generate.",
     )
 
     args = parser.parse_args()

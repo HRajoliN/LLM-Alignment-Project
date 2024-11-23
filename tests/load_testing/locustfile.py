@@ -1,4 +1,5 @@
-from locust import HttpUser, task, between
+from locust import HttpUser, between, task
+
 
 class LoadTesting(HttpUser):
     wait_time = between(1, 5)
@@ -9,8 +10,11 @@ class LoadTesting(HttpUser):
 
     @task
     def test_feedback_submission(self):
-        self.client.post("/submit-feedback", {
-            "model-response": "Example response to rate",
-            "rating": "5",
-            "comments": "Great response!"
-        })
+        self.client.post(
+            "/submit-feedback",
+            {
+                "model-response": "Example response to rate",
+                "rating": "5",
+                "comments": "Great response!",
+            },
+        )

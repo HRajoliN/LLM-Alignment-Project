@@ -1,0 +1,22 @@
+# Development requirements
+
+# Code quality and linting tools
+pylint
+black
+isort
+
+# Testing tools
+pytest
+pytest-cov
+
+# Mocking tools
+unittest2
+pytest-mock
+
+# Environment and dotenv management
+python-dotenv
+
+# Other useful tools
+tox  # For environment management and testing multiple Python versions
+pre-commit  # For pre-commit hooks
+bandit  # Security linter for finding common security issues

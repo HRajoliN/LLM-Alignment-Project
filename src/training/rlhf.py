@@ -1,4 +1,5 @@
-from transformers import PPOTrainer, PPOConfig
+from transformers import PPOConfig, PPOTrainer
+
 
 def train_with_rlhf(model, tokenizer, reward_model, dataset):
     """
@@ -13,7 +14,7 @@ def train_with_rlhf(model, tokenizer, reward_model, dataset):
         model=model,
         tokenizer=tokenizer,
         dataset=dataset,
-        reward_model=reward_model
+        reward_model=reward_model,
     )
 
     # Train the model

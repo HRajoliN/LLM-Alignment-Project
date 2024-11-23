@@ -8,9 +8,11 @@ model_name = "gpt2"
 model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
+
 @app.get("/")
 def root():
     return {"message": "LLM Alignment Assistant is running!"}
+
 
 @app.post("/predict/")
 def predict(prompt: str):

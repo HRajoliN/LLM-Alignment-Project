@@ -1,20 +1,22 @@
 # SHAP-based Explainability Dashboard using Streamlit
 
-import streamlit as st
-import shap
-import matplotlib.pyplot as plt
 import joblib
+import matplotlib.pyplot as plt
 import pandas as pd
+import shap
+import streamlit as st
 
 # Load the trained model
-model = joblib.load('model/retrained_model.pkl')
+model = joblib.load("model/retrained_model.pkl")
 
 # Sample data for explanation
-X_sample = pd.DataFrame({
-    'Feature1': [1, 2, 3, 4, 5],
-    'Feature2': [5, 4, 3, 2, 1],
-    'Feature3': [2, 3, 4, 5, 6]
-})
+X_sample = pd.DataFrame(
+    {
+        "Feature1": [1, 2, 3, 4, 5],
+        "Feature2": [5, 4, 3, 2, 1],
+        "Feature3": [2, 3, 4, 5, 6],
+    }
+)
 
 # Title of the dashboard
 st.title("🧐 Model Explainability Dashboard")

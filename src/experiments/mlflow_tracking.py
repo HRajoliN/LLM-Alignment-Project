@@ -3,13 +3,15 @@
 
 import mlflow
 import mlflow.sklearn
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 # Load data
 data = load_iris()
-X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    data.data, data.target, test_size=0.2, random_state=42
+)
 
 # MLflow Experiment Tracking
 with mlflow.start_run():
@@ -30,4 +32,6 @@ with mlflow.start_run():
     # Log Model
     mlflow.sklearn.log_model(model, "random_forest_model")
 
-    print(f"Model saved with train accuracy: {train_accuracy:.2f} and test accuracy: {test_accuracy:.2f}")
+    print(
+        f"Model saved with train accuracy: {train_accuracy:.2f} and test accuracy: {test_accuracy:.2f}"
+    )
