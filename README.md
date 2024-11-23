@@ -90,7 +90,7 @@ LLM-Alignment-Assistant/
      ```bash
      pip install -r requirements.txt
      ```
-   - Using \`environment.yml\` (if using Conda):
+   - Using `environment.yml` (if using Conda):
      ```bash
      conda env create -f environment.yml
      conda activate llm-alignment-assistant
@@ -107,13 +107,13 @@ LLM-Alignment-Assistant/
 ## Usage
 
 1. **Fine-Tuning**:
-   - Run \`src/training/fine_tuning.py\` with your dataset and model.
+   - Run `src/training/fine_tuning.py` with your dataset and model.
 2. **RLHF Training**:
-   - Run \`src/training/rlhf.py\` for RLHF optimization.
+   - Run `src/training/rlhf.py` for RLHF optimization.
 3. **Model Evaluation**:
-   - Use \`src/evaluation/metrics.py\` to analyze model performance.
+   - Use `src/evaluation/metrics.py` to analyze model performance.
 4. **Web Application**:
-   - Access the interactive UI by navigating to \`http://localhost:8000\`.
+   - Access the interactive UI by navigating to `http://localhost:8000`.
 
 ---
 
@@ -153,4 +153,4 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the \`LICENSE\` file for details.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
