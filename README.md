@@ -1,8 +1,8 @@
 # 🌌 LLM Alignment Template - Your Template for Aligning Language Models
 
-[![Build Status](https://github.com/astorfi/LLM-Alignment-Template/actions/workflows/ci.yml/badge.svg)](https://github.com/astorfi/LLM-Alignment-Template/actions)
+[![Build Status](https://github.com/astorfi/LLM-Alignment-Project-Template/actions/workflows/ci.yml/badge.svg)](https://github.com/astorfi/LLM-Alignment-Project-Template/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](https://github.com/astorfi/LLM-Alignment-Template/issues)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](https://github.com/astorfi/LLM-Alignment-Project-Template/issues)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 
 ## 📌 Introduction
