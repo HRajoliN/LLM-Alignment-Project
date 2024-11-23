@@ -1,0 +1,47 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is the API documentation for the LLM Alignment Assistant.",
+      "version": "1.0.0",
+      "title": "LLM Alignment Assistant API"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/health": {
+        "get": {
+          "tags": [
+            "Health"
+          ],
+          "summary": "Checks the health status of the API",
+          "operationId": "healthCheck",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "API is healthy",
+              "schema": {
+                "$ref": "#/definitions/HealthStatus"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "HealthStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "healthy"
+          }
+        }
+      }
+    }
+  }
+  

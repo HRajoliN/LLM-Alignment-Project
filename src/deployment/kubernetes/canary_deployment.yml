@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-alignment-assistant-canary
+  labels:
+    app: llm-alignment-assistant
+    version: canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-alignment-assistant
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: llm-alignment-assistant
+        version: canary
+    spec:
+      containers:
+      - name: llm-alignment-assistant
+        image: user/repository:canary
+        ports:
+        - containerPort: 5000

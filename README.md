@@ -126,6 +126,45 @@ For hyperparameter tuning, **Optuna** has been integrated to provide automated e
 - **🔍 Explainability**: SHAP and LIME explainability metrics are added to the evaluation process, providing insights into model behavior.
 - **📜 Logging**: Centralized logging using **ELK Stack** (Elasticsearch, Logstash, Kibana).
 
+## 🚀 Cloud Deployment Instructions (AWS)
+
+To deploy the LLM Alignment Assistant on **AWS**, you can utilize **Elastic Kubernetes Service (EKS)** or **AWS Sagemaker** for model training:
+
+1. **AWS Elastic Kubernetes Service (EKS)**:
+   - Create an EKS cluster using AWS CLI or the console.
+   - Apply the Kubernetes deployment files:
+     ```bash
+     kubectl apply -f deployment/kubernetes/deployment.yml
+     kubectl apply -f deployment/kubernetes/service.yml
+     ```
+   - Configure the **Horizontal Pod Autoscaler (HPA)** to ensure scalability:
+     ```bash
+     kubectl apply -f deployment/kubernetes/hpa.yml
+     ```
+
+2. **AWS Sagemaker for Model Training**:
+   - Modify the `training/fine_tuning.py` to integrate with AWS Sagemaker.
+   - Use the Sagemaker Python SDK to launch a training job:
+     ```python
+     import sagemaker
+     from sagemaker.pytorch import PyTorch
+
+     role = "arn:aws:iam::your-account-id:role/service-role/AmazonSageMaker-ExecutionRole-2023"
+
+     pytorch_estimator = PyTorch(
+         entry_point='training/fine_tuning.py',
+         role=role,
+         instance_count=1,
+         instance_type='ml.p2.xlarge',
+         framework_version='1.8.0',
+         py_version='py3'
+     )
+
+     pytorch_estimator.fit({'training': 's3://your-bucket-name/training-data'})
+     ```
+   - Ensure IAM roles and permissions are properly set for accessing **S3** and **Sagemaker**.
+
+
 ## 🚀 Future Work
 
 - **🌍 Multi-Language Support**: Expand the LLM's training to support multiple languages.

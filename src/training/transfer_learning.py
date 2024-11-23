@@ -1,25 +1,17 @@
-# File: src/training/fine_tuning.py
-# Fine-tuning Script with Option to Use Pre-trained Models
-
+# Transfer Learning Script
 import torch
-from torch.optim import AdamW
 from transformers import BertForSequenceClassification, BertTokenizer
+from torch.optim import AdamW
+from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, Dataset
 import pandas as pd
-from sklearn.model_selection import train_test_split
 
-# Load configuration
-use_pretrained = True
-model_name = 'bert-base-uncased'
-
-# Load Dataset
-train_data = pd.read_csv('data/processed/train_data.csv')
-val_data = pd.read_csv('data/processed/val_data.csv')
-
-# Tokenizer Setup
+# Load pre-trained model and tokenizer from HuggingFace
+model_name = "bert-base-uncased"
+model = BertForSequenceClassification.from_pretrained(model_name, num_labels=2)
 tokenizer = BertTokenizer.from_pretrained(model_name)
 
-# Custom Dataset Class
+# Custom Dataset class
 class CustomDataset(Dataset):
     def __init__(self, texts, labels, tokenizer, max_length):
         self.texts = texts
@@ -50,33 +42,25 @@ class CustomDataset(Dataset):
             'labels': torch.tensor(label, dtype=torch.long)
         }
 
-# Prepare DataLoader for Training
-train_dataset = CustomDataset(
-    train_data['text'].values,
-    train_data['label'].values,
-    tokenizer,
-    max_length=128
-)
-val_dataset = CustomDataset(
-    val_data['text'].values,
-    val_data['label'].values,
-    tokenizer,
-    max_length=128
-)
+# Load dataset
+data = pd.read_csv('data/processed/custom_training_data.csv')
+X = data['text'].values
+y = data['label'].values
+
+# Split data
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create DataLoader
+train_dataset = CustomDataset(X_train, y_train, tokenizer, max_length=128)
+val_dataset = CustomDataset(X_val, y_val, tokenizer, max_length=128)
 
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=16)
 
-# Load Model
-if use_pretrained:
-    model = BertForSequenceClassification.from_pretrained(model_name, num_labels=2)
-else:
-    model = BertForSequenceClassification(config=config)
-
-# Optimizer Setup
+# Define optimizer
 optimizer = AdamW(model.parameters(), lr=2e-5)
 
-# Training Loop
+# Training loop
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
@@ -94,29 +78,9 @@ for epoch in range(3):
         loss.backward()
         optimizer.step()
 
-    # Validation Loop
-    model.eval()
-    val_loss_total = 0
-    correct_predictions = 0
-    total = 0
-    with torch.no_grad():
-        for batch in val_loader:
-            input_ids = batch['input_ids'].to(device)
-            attention_mask = batch['attention_mask'].to(device)
-            labels = batch['labels'].to(device)
+    print(f"Epoch {epoch + 1} completed.")
 
-            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-            val_loss_total += outputs.loss.item()
-            logits = outputs.logits
-            predictions = torch.argmax(logits, dim=-1)
-            correct_predictions += (predictions == labels).sum().item()
-            total += labels.size(0)
-
-    val_loss_avg = val_loss_total / len(val_loader)
-    val_accuracy = correct_predictions / total
-    print(f"Epoch {epoch + 1} - Validation Loss: {val_loss_avg:.4f} - Accuracy: {val_accuracy:.4f}")
-
-# Save Fine-tuned Model
+# Save fine-tuned model
 model.save_pretrained('model/fine_tuned_bert')
 tokenizer.save_pretrained('model/fine_tuned_bert')
-print("Fine-tuned model saved successfully.")
+print("Fine-tuned model saved.")

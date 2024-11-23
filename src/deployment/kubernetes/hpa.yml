@@ -1,0 +1,14 @@
+# Kubernetes Horizontal Pod Autoscaler Configuration
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: llm-alignment-assistant-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: llm-alignment-assistant
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50

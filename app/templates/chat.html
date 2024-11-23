@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Interactive Chat</title>
+</head>
+<body>
+    <div id="chat-container">
+        <h2>💬 Interactive Chat</h2>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Ask a question..." />
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script>
+        document.getElementById('send-btn').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                document.getElementById('chat-box').innerHTML += `<div class='user-msg'>${userInput}</div>`;
+                // Simulate response
+                document.getElementById('chat-box').innerHTML += `<div class='bot-msg'>Processing your query...</div>`;
+            }
+            document.getElementById('user-input').value = '';
+        });
+    </script>
+</body>
+</html>

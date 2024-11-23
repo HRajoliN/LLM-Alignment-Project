@@ -1,0 +1,49 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "LLM Alignment Assistant API - Interactive Documentation",
+      "version": "1.0.0",
+      "title": "LLM Alignment Assistant API"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+      "/train": {
+        "post": {
+          "tags": ["Model Training"],
+          "summary": "Initiate model training with provided data",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "trainingData",
+              "description": "Training data for the model",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/TrainingData"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Training started successfully"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "TrainingData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  

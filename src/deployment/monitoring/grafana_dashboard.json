@@ -1,0 +1,26 @@
+{
+    "title": "LLM Alignment Assistant Monitoring",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "CPU Usage",
+        "targets": [
+          {
+            "expr": "node_cpu_seconds_total",
+            "legendFormat": "CPU Usage"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Model Response Time",
+        "targets": [
+          {
+            "expr": "flask_http_request_duration_seconds",
+            "legendFormat": "Response Time"
+          }
+        ]
+      }
+    ]
+  }
+  
