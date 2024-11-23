@@ -1,9 +1,20 @@
-# 🌌 LLM Alignment Assistant - Your Template for Aligning Language Models
+# 🌌 LLM Alignment Template - Your Template for Aligning Language Models
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/astorfi/LLM-Alignment-Template/ci.yml?branch=main)](https://github.com/astorfi/LLM-Alignment-Template/actions)
+[![Code Coverage](https://img.shields.io/codecov/c/github/astorfi/LLM-Alignment-Template)](https://codecov.io/gh/astorfi/LLM-Alignment-Template)
+[![License](https://img.shields.io/github/license/astorfi/LLM-Alignment-Template)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](https://github.com/astorfi/LLM-Alignment-Template/issues)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 
 ## 📌 Introduction
 
-**LLM Alignment Assistant** is not just a comprehensive tool for aligning large language models (LLMs), but also serves as a **powerful template** for building your own LLM alignment application. This repository is designed to provide a full stack of functionality, acting as a starting point to customize and extend for your own LLM alignment needs. Whether you are a researcher, developer, or data scientist, this template provides a solid foundation for efficiently creating and deploying LLMs tailored to align with human values and objectives.
+**LLM Alignment Template** is not just a comprehensive tool for aligning large language models (LLMs), but also serves as a **powerful template** for building your own LLM alignment application. Inspired by project templates like **PyTorch Project Template**, this repository is designed to provide a full stack of functionality, acting as a starting point to customize and extend for your own LLM alignment needs. Whether you are a researcher, developer, or data scientist, this template provides a solid foundation for efficiently creating and deploying LLMs tailored to align with human values and objectives.
 
+## 🚀 Overview
+
+**LLM Alignment Template** provides a full stack of functionality, including training, fine-tuning, deploying, and monitoring LLMs using Reinforcement Learning from Human Feedback (RLHF). This project also integrates evaluation metrics to ensure ethical and effective use of language models. The interface offers a user-friendly experience for managing alignment, visualizing training metrics, and deploying at scale.
+
+![Architecture Diagram](assets/architecture_diagram.png)
 
 ## ✨ Features
 
@@ -14,6 +25,27 @@
 - **📦 Scalable Deployment**: Docker and Kubernetes-based deployment with Horizontal Pod Autoscaling (HPA).
 - **🔍 Model Explainability**: SHAP-based dashboards for understanding model decisions.
 - **📊 User Feedback Loop**: Collection of user ratings for fine-tuning models continuously.
+
+## 📂 Table of Contents
+
+- [Introduction](#-introduction)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Setup](#️-setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running Locally](#running-locally)
+- [Deployment](#-deployment)
+  - [Kubernetes Deployment](#kubernetes-deployment)
+  - [Canary Deployment](#canary-deployment)
+  - [Monitoring and Logging](#monitoring-and-logging)
+- [Training and Evaluation](#-training-and-evaluation)
+- [Testing](#-testing)
+- [Future Work](#-future-work)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ## 📂 Project Structure
 
@@ -57,8 +89,8 @@
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/LLM-Alignment-Assistant.git
-   cd LLM-Alignment-Assistant
+   git clone https://github.com/yourusername/LLM-Alignment-Template.git
+   cd LLM-Alignment-Template
    ```
 
 2. **Install Dependencies**:
@@ -149,8 +181,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## 📬 Contact
 
 - **📧 Email**: [amirsina.torfi@gmail.com](mailto:amirsina.torfi@gmail.com)
-- **🌐 Website**: [The Author Website](https://astorfi.github.io)
+- **🌐 Website**: [Author Website](https://astorfi.github.io)
 
 ---
 
-<p align="center">Developed with ❤️ by Your Name</p>
+<p align="center">Developed with ❤️ by Amirsina Torfi</p>
