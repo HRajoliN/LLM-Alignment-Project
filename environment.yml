@@ -1,0 +1,3 @@
+name: llm-alignment-assistant
+channels:
+  - conda-forge

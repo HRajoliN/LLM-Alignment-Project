@@ -1,1 +1,1 @@
-# LLM-Alignment-Assistant
+Comprehensive README content.
