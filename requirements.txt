@@ -10,6 +10,7 @@ pyspellchecker  # Used for checking and adding spelling variations
 
 # Deep Learning Libraries
 torch  # Required for training, if not already included
+numpy<1.22  # Adding numpy explicitly for Python 3.8 compatibility
 
 # Reinforcement Learning and Hyperparameter Tuning
 ray[rllib]  # For reinforcement learning and distributed PPO training
