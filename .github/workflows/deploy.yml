@@ -21,13 +21,24 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install -r dev-requirements.txt  # Install development requirements for testing and linting
+        pip install -r dev-requirements.txt
+        pip install "black[jupyter]"  # Install Jupyter support for Black
 
-    - name: Lint Code
-      run: pylint app/**/*.py
+    - name: Run Black
+      run: |
+        black .  # Allow Black to automatically reformat files
+
+    - name: Run isort
+      run: |
+        isort --check-only .
+
+    - name: Run Pylint
+      run: |
+        pylint src tests
 
     - name: Run Unit Tests
-      run: pytest tests/
+      run: |
+        pytest --cov=src tests/
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
@@ -36,7 +47,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: deployment/Dockerfile
+        file: deployment/Dockerfile  # Use the correct path to Dockerfile
         tags: user/repository:latest
         push: true
 
