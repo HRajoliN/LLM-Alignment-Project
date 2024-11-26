@@ -7,6 +7,16 @@
 
 ## 📌 Introduction
 
+# LLM Alignment Project
+
+<p align="center">
+  <img src="_img/LLMalignment.png" alt="LLM Alignment Project" width="600">
+  <br>
+  <i>Figure 1: Overview of the LLM Alignment Project. Take a look at: <a href="https://arxiv.org/abs/2308.05374" target="_blank">arXiv:2308.05374</a></i>
+</p>
+
+
+
 **LLM Alignment Template** is not just a comprehensive tool for aligning large language models (LLMs), but also serves as a **powerful template** for building your own LLM alignment application. Inspired by project templates like **PyTorch Project Template**, this repository is designed to provide a full stack of functionality, acting as a starting point to customize and extend for your own LLM alignment needs. Whether you are a researcher, developer, or data scientist, this template provides a solid foundation for efficiently creating and deploying LLMs tailored to align with human values and objectives.
 
 ## 🚀 Overview
