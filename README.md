@@ -12,7 +12,7 @@
 <p align="center">
   <img src="_img/LLMalignment.png" alt="LLM Alignment Project" width="600">
   <br>
-  <i>Figure 1: Overview of the LLM Alignment Project. Take a look at: <a href="https://arxiv.org/abs/2308.05374" target="_blank">arXiv:2308.05374</a></i>
+  <i>Figure 1: Take a look at: <a href="https://arxiv.org/abs/2308.05374" target="_blank">arXiv:2308.05374</a></i>
 </p>
 
 
