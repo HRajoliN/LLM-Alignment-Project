@@ -190,6 +190,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **📧 Email**: [amirsina.torfi@gmail.com](mailto:amirsina.torfi@gmail.com)
 - **🌐 Website**: [Author Website](https://astorfi.github.io)
 
----
+## Main Collaborators
 
-<p align="center">Developed with ❤️ by Amirsina Torfi</p>
+| [<img src="https://github.com/astorfi.png" width="100px;"/>](https://github.com/astorfi)<br/> [<sub>Amirsina Torfi</sub>](https://github.com/astorfi) | [<img src="https://github.com/HRajoliN.png" width="100px;"/>](https://github.com/HRajoliN)<br/> [<sub>Hossein Rajoli</sub>](https://github.com/HRajoliN) |
+| --- | --- |
